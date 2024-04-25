@@ -227,7 +227,7 @@ public class ModifInfo {
 				 				 
 				    } catch (SQLException e1) {
 					 e1.printStackTrace();
-					 JOptionPane.showMessageDialog(btnDrPrincipale,"Erreur");
+					 JOptionPane.showMessageDialog(btnModifier,"Erreur");
 				}
 			}
 		});
