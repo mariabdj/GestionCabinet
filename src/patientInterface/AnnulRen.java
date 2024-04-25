@@ -122,7 +122,7 @@ public class AnnulRen {
 				 				 
 				    } catch (SQLException e1) {
 					 e1.printStackTrace();
-					 JOptionPane.showMessageDialog(btnDrPrincipale,"Erreur");
+					 JOptionPane.showMessageDialog(btnAnnuler,"Erreur");
 				}
 				
 			}

@@ -74,7 +74,7 @@ public class patientPrincipale {
 		btnAfficherDossier.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				AfficheDossier afficheDos = new AfficheDossier();
+				AfficheDossier afficheDos = new AfficheDossier("01");
 		        afficheDos.frame.setVisible(true);
 			}
 		});

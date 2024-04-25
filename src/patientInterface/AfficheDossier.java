@@ -22,6 +22,7 @@ public class AfficheDossier {
 	public JFrame frame;
 	private JTable tableCons;
 	private Connection connection;
+	static String mat="01";
 
 	/**
 	 * Launch the application.
@@ -30,7 +31,7 @@ public class AfficheDossier {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AfficheDossier window = new AfficheDossier();
+					AfficheDossier window = new AfficheDossier(mat);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,14 +43,14 @@ public class AfficheDossier {
 	/**
 	 * Create the application.
 	 */
-	public AfficheDossier() {
-		initialize();
+	public AfficheDossier(String mat) {
+		initialize(mat);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String mat) {
 		
 		try {
 			//chargement de driver ojdbc pour se connecter à une BDD Oracle
@@ -62,6 +63,7 @@ public class AfficheDossier {
 			e.printStackTrace();
 		     }
 		
+		String matricule = mat;
 		frame = new JFrame();
 		frame.setSize(800, 500);
 		frame.setBounds(100, 100, 799, 501);
@@ -100,7 +102,6 @@ public class AfficheDossier {
 		
 		//Afficher nom prenom
 		try {
-            String matricule = "01";
             String sql = "SELECT nom, prenom FROM Patient WHERE matPat = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, matricule);
@@ -119,7 +120,6 @@ public class AfficheDossier {
 		
 		//Afficher Consultation
 		try {
-            String matricule = "01";
             String sql = "SELECT * FROM Consultation WHERE matPat_Dos = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, matricule);
@@ -139,7 +139,6 @@ public class AfficheDossier {
 		
 		//Afficher Groupe Sanguin
 		try {
-            String matricule = "01";
             String sql = "SELECT groupeSanguin FROM DossierMedicale WHERE matPat_Dos = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, matricule);
