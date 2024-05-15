@@ -33,7 +33,8 @@ public class PrendreRen {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PrendreRen window = new PrendreRen();
+					String mat="64";
+					PrendreRen window = new PrendreRen(mat);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,14 +46,14 @@ public class PrendreRen {
 	/**
 	 * Create the application.
 	 */
-	public PrendreRen() {
-		initialize();
+	public PrendreRen(String mat) {
+		initialize(mat);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String mat) {
 		
 		try {
 			//chargement de driver ojdbc pour se connecter à une BDD Oracle
@@ -106,7 +107,7 @@ public class PrendreRen {
 					 //recuperer les valeurs saisies dans  les champs de votre interface
 		
 					   
-					   String matricule_patient = "01";
+					   String matricule_patient = mat;
 					   String date_rendezvous = txtDate.getText();
 					   String heure = txtHeure.getText();
 

@@ -44,7 +44,8 @@ public class ModifInfo {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ModifInfo window = new ModifInfo();
+					String mat="64";
+					ModifInfo window = new ModifInfo(mat);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,14 +57,14 @@ public class ModifInfo {
 	/**
 	 * Create the application.
 	 */
-	public ModifInfo() {
-		initialize();
+	public ModifInfo(String mat) {
+		initialize(mat);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String mat) {
 		
 		try {
 			//chargement de driver ojdbc pour se connecter à une BDD Oracle
@@ -195,7 +196,7 @@ public class ModifInfo {
 					   String nouvelle_adresse = txtAdresse.getText();
 					   String nouveau_numtel = txtTel.getText();
 					   String nouvelle_date_de_naissance = txtDateNai.getText();
-					   String matricule_patient = "01"; // exemple de matricule
+					   String matricule_patient = mat;
 
 					   String sql = "UPDATE Patient SET "
 					               + "nom = '" + nouveau_nom + "', "
