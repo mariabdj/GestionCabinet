@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class patientPrincipale {
+public class PatientPrincipale {
 
 	public JFrame frame;
 
@@ -20,7 +20,8 @@ public class patientPrincipale {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					patientPrincipale window = new patientPrincipale();
+					String mat="64";
+					PatientPrincipale window = new PatientPrincipale(mat);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,14 +33,14 @@ public class patientPrincipale {
 	/**
 	 * Create the application.
 	 */
-	public patientPrincipale() {
-		initialize();
+	public PatientPrincipale(String mat) {
+		initialize(mat);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String mat) {
 		frame = new JFrame();
 		frame.setSize(800, 500);
 		frame.setBounds(100, 100, 802, 500);
@@ -50,7 +51,7 @@ public class patientPrincipale {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-		        AfficheInfo afficheInfo = new AfficheInfo();
+		        AfficheInfo afficheInfo = new AfficheInfo(mat);
 		        afficheInfo.frame.setVisible(true);
 			}
 		});
@@ -62,7 +63,7 @@ public class patientPrincipale {
 		btnModifierInformations.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ModifInfo modifInfo = new ModifInfo();
+				ModifInfo modifInfo = new ModifInfo(mat);
 		        modifInfo.frame.setVisible(true);
 			}
 		});
@@ -74,7 +75,7 @@ public class patientPrincipale {
 		btnAfficherDossier.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				AfficheDossier afficheDos = new AfficheDossier("01");
+				AfficheDossier afficheDos = new AfficheDossier(mat);
 		        afficheDos.frame.setVisible(true);
 			}
 		});
@@ -86,7 +87,7 @@ public class patientPrincipale {
 		btnModifezRendezvous.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ModifInfo modifInfo = new ModifInfo();
+				ModifInfo modifInfo = new ModifInfo(mat);
 		        modifInfo.frame.setVisible(true);
 			}
 		});
@@ -98,7 +99,7 @@ public class patientPrincipale {
 		btnPrendreRendezvous.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				PrendreRen prendreRen = new PrendreRen();
+				PrendreRen prendreRen = new PrendreRen(mat);
 		        prendreRen.frame.setVisible(true);
 			}
 		});
@@ -114,7 +115,7 @@ public class patientPrincipale {
 		btnNewButton_2_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				AfficheRen afficheRen = new AfficheRen();
+				AfficheRen afficheRen = new AfficheRen(mat);
 		        afficheRen.frame.setVisible(true);
 			}
 		});
@@ -126,7 +127,7 @@ public class patientPrincipale {
 		btnNewButton_3_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				AnnulRen annulRen = new AnnulRen();
+				AnnulRen annulRen = new AnnulRen(mat);
 		        annulRen.frame.setVisible(true);
 			}
 		});

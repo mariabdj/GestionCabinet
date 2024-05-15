@@ -29,7 +29,8 @@ public class AfficheRen {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AfficheRen window = new AfficheRen();
+					String mat="64";
+					AfficheRen window = new AfficheRen(mat);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,14 +42,14 @@ public class AfficheRen {
 	/**
 	 * Create the application.
 	 */
-	public AfficheRen() {
-		initialize();
+	public AfficheRen(String mat) {
+		initialize(mat);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String mat) {
 		
 		try {
 			//chargement de driver ojdbc pour se connecter à une BDD Oracle
@@ -71,7 +72,7 @@ public class AfficheRen {
 		
 
 		// Dans votre méthode initialize() ou dans votre constructeur
-		String matriculePatient = "01"; // Matricule du patient dont vous voulez afficher les rendez-vous
+		String matriculePatient = mat; // Matricule du patient dont vous voulez afficher les rendez-vous
 
 		try {
 		    // Définir la requête SQL pour sélectionner les rendez-vous du patient spécifié

@@ -32,7 +32,8 @@ public class AnnulRen {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AnnulRen window = new AnnulRen();
+					String mat="64";
+					AnnulRen window = new AnnulRen(mat);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,14 +45,14 @@ public class AnnulRen {
 	/**
 	 * Create the application.
 	 */
-	public AnnulRen() {
-		initialize();
+	public AnnulRen(String mat) {
+		initialize(mat);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String mat) {
 		
 		
 		try {

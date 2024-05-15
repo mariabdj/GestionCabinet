@@ -22,7 +22,6 @@ public class AfficheDossier {
 	public JFrame frame;
 	private JTable tableCons;
 	private Connection connection;
-	static String mat="01";
 
 	/**
 	 * Launch the application.
@@ -31,6 +30,7 @@ public class AfficheDossier {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					String mat="64";
 					AfficheDossier window = new AfficheDossier(mat);
 					window.frame.setVisible(true);
 				} catch (Exception e) {

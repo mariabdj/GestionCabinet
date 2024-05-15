@@ -17,6 +17,7 @@ public class AfficheInfo {
 
 	public JFrame frame;
 	private Connection connection;
+	String mat;
 
 	/**
 	 * Launch the application.
@@ -25,7 +26,8 @@ public class AfficheInfo {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AfficheInfo window = new AfficheInfo();
+					String mat="64";
+					AfficheInfo window = new AfficheInfo(mat);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,14 +39,14 @@ public class AfficheInfo {
 	/**
 	 * Create the application.
 	 */
-	public AfficheInfo() {
-		initialize();
+	public AfficheInfo(String mat) {
+		initialize(mat);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String mat) {
 		
 		try {
 			//chargement de driver ojdbc pour se connecter à une BDD Oracle
@@ -161,7 +163,7 @@ public class AfficheInfo {
 		
 		try {
 		    // Création de la requête SQL pour sélectionner les informations du patient avec le matricule "01"
-		    String matricule = "01";
+		    String matricule = mat;
 		    String sql = "SELECT nom, prenom, email, gender, maladies, numtel, birthdate, adresse FROM Patient WHERE matPat = ?";
 		    
 		    // Création d'un PreparedStatement avec la requête SQL
