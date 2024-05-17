@@ -8,10 +8,17 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class PatientPrincipale {
 
 	public JFrame frame;
+	JPanel backgroundPanel;
+
 
 	/**
 	 * Launch the application.
@@ -47,6 +54,20 @@ public class PatientPrincipale {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		
+		ImageIcon backgroundImage = new ImageIcon("src/background.png");
+
+		// Create a panel for holding the background image
+		        backgroundPanel = new JPanel() {
+		            @Override
+		            protected void paintComponent(Graphics g) {
+		                super.paintComponent(g);
+		                g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+		            }
+		        };
+		        backgroundPanel.setBounds(0, 0, 800, 500); // Set bounds to cover the entire frame
+		        backgroundPanel.setLayout(null); // Using null layout for positioning components freely
+
 		JButton btnNewButton = new JButton("Afficher Information");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -146,5 +167,6 @@ public class PatientPrincipale {
 		btnNewButton_4_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton_4_1.setBounds(453, 355, 292, 77);
 		frame.getContentPane().add(btnNewButton_4_1);
+		frame.getContentPane().add(backgroundPanel);
 	}
 }

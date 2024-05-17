@@ -16,6 +16,11 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class PrendreRen {
 
@@ -24,6 +29,8 @@ public class PrendreRen {
 	private JTextField txtHeure;
 	private Connection connection;
 	private Statement statement;
+	JPanel backgroundPanel;
+
 	
 
 	/**
@@ -65,6 +72,20 @@ public class PrendreRen {
 	        } catch (Exception e) {
 			e.printStackTrace();
 		     }
+		
+		ImageIcon backgroundImage = new ImageIcon("src/background.png");
+
+		// Create a panel for holding the background image
+		        backgroundPanel = new JPanel() {
+		            @Override
+		            protected void paintComponent(Graphics g) {
+		                super.paintComponent(g);
+		                g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+		            }
+		        };
+		        backgroundPanel.setBounds(0, 0, 800, 500); // Set bounds to cover the entire frame
+		        backgroundPanel.setLayout(null); // Using null layout for positioning components freely
+
 		
 		frame = new JFrame();
 		frame.setSize(800, 500);
@@ -164,5 +185,6 @@ public class PrendreRen {
 		btnDrRemplacant.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		btnDrRemplacant.setBounds(435, 332, 305, 85);
 		frame.getContentPane().add(btnDrRemplacant);
+		frame.getContentPane().add(backgroundPanel);
 	}
 }

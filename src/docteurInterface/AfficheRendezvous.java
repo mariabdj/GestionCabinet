@@ -2,6 +2,11 @@ package docteurInterface;
 
 import java.awt.EventQueue;
 
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -21,6 +26,8 @@ public class AfficheRendezvous {
 	private Connection connection;
 	private Statement statement;
 	private JTable table;
+	JPanel backgroundPanel;
+
 
 	/**
 	 * Launch the application.
@@ -61,6 +68,20 @@ public class AfficheRendezvous {
 			e.printStackTrace();
 		     }
 		
+   	 ImageIcon backgroundImage = new ImageIcon("src/background.png");
+
+//Create a panel for holding the background image
+   backgroundPanel = new JPanel() {
+       @Override
+       protected void paintComponent(Graphics g) {
+           super.paintComponent(g);
+           g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+       }
+   };
+   backgroundPanel.setBounds(0, 0, 800, 500); // Set bounds to cover the entire frame
+   backgroundPanel.setLayout(null); // Using null layout for positioning components freely
+
+		
 		frame = new JFrame();
 		frame.setSize(800,500);
 		frame.setBounds(100, 100, 801, 506);
@@ -93,5 +114,6 @@ public class AfficheRendezvous {
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+		frame.getContentPane().add(backgroundPanel);
 	}
 }

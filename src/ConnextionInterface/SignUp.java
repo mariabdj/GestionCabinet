@@ -3,6 +3,7 @@ package ConnextionInterface;
 import java.awt.EventQueue;
 
 
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -23,6 +24,11 @@ import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class SignUp {
 
@@ -47,6 +53,7 @@ public class SignUp {
 	private JTextField mdp;
 	private JTextField utilisateur;
 	private JButton connexion;
+	JPanel backgroundPanel;
 	String idPatient2;
 
 	/**
@@ -92,6 +99,17 @@ public class SignUp {
 		frame.setBounds(100, 100, 800, 505);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		 ImageIcon backgroundImage = new ImageIcon("src/background.png");
+		// Create a panel for holding the background image
+	        backgroundPanel = new JPanel() {
+	            @Override
+	            protected void paintComponent(Graphics g) {
+	                super.paintComponent(g);
+	                g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+	            }
+	        };
+	        backgroundPanel.setBounds(0, 0, 800, 505); // Set bounds to cover the entire frame
+	        backgroundPanel.setLayout(null); // Using null layout for positioning components freely
 		
 		JLabel lblNewLabel = new JLabel("Nom D'utilisateur :");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -102,30 +120,6 @@ public class SignUp {
 		lblMotDePasse.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblMotDePasse.setBounds(410, 10, 187, 55);
 		frame.getContentPane().add(lblMotDePasse);
-		
-		lblNewLabel_1 = new JLabel("Nom :");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(10, 77, 139, 63);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		lblPrnom = new JLabel("Prénom :");
-		lblPrnom.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrnom.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPrnom.setBounds(10, 155, 139, 63);
-		frame.getContentPane().add(lblPrnom);
-		
-		lblEmail = new JLabel("E-mail :");
-		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblEmail.setBounds(10, 236, 139, 63);
-		frame.getContentPane().add(lblEmail);
-		
-		lblGenre = new JLabel("Genre :");
-		lblGenre.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGenre.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblGenre.setBounds(10, 321, 139, 63);
-		frame.getContentPane().add(lblGenre);
 		
 		lblNewLabel_2 = new JLabel("Adresse :");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -150,30 +144,6 @@ public class SignUp {
 		lblMaladies.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblMaladies.setBounds(410, 77, 139, 63);
 		frame.getContentPane().add(lblMaladies);
-		
-		nom = new JTextField();
-		nom.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		nom.setColumns(10);
-		nom.setBounds(145, 90, 200, 48);
-		frame.getContentPane().add(nom);
-		
-		prenom = new JTextField();
-		prenom.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		prenom.setColumns(10);
-		prenom.setBounds(145, 168, 200, 48);
-		frame.getContentPane().add(prenom);
-		
-		email = new JTextField();
-		email.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		email.setColumns(10);
-		email.setBounds(145, 249, 200, 48);
-		frame.getContentPane().add(email);
-		
-		genre = new JTextField();
-		genre.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		genre.setColumns(10);
-		genre.setBounds(145, 334, 200, 48);
-		frame.getContentPane().add(genre);
 		
 		adrs = new JTextField();
 		adrs.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -210,6 +180,7 @@ public class SignUp {
 		utilisateur.setColumns(10);
 		utilisateur.setBounds(188, 18, 200, 48);
 		frame.getContentPane().add(utilisateur);
+
 		
 		connexion = new JButton("Créer Compte");
 		connexion.addMouseListener(new MouseAdapter() {
@@ -279,11 +250,61 @@ public class SignUp {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		connexion.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		connexion.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		connexion.setBounds(278, 404, 249, 48);
 		frame.getContentPane().add(connexion);
+		frame.getContentPane().add(backgroundPanel);
+		
+		nom = new JTextField();
+		nom.setBounds(187, 89, 200, 48);
+		backgroundPanel.add(nom);
+		nom.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		nom.setColumns(10);
+		
+		prenom = new JTextField();
+		prenom.setBounds(187, 167, 200, 48);
+		backgroundPanel.add(prenom);
+		prenom.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		prenom.setColumns(10);
+		
+		email = new JTextField();
+		email.setBounds(187, 248, 200, 48);
+		backgroundPanel.add(email);
+		email.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		email.setColumns(10);
+		
+		genre = new JTextField();
+		genre.setBounds(187, 333, 200, 48);
+		backgroundPanel.add(genre);
+		genre.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		genre.setColumns(10);
+		
+		lblNewLabel_1 = new JLabel("Nom :");
+		lblNewLabel_1.setBounds(69, 77, 139, 63);
+		backgroundPanel.add(lblNewLabel_1);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		lblPrnom = new JLabel("Prénom :");
+		lblPrnom.setBounds(69, 155, 139, 63);
+		backgroundPanel.add(lblPrnom);
+		lblPrnom.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPrnom.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		lblEmail = new JLabel("E-mail :");
+		lblEmail.setBounds(69, 236, 139, 63);
+		backgroundPanel.add(lblEmail);
+		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		lblGenre = new JLabel("Genre :");
+		lblGenre.setBounds(69, 321, 139, 63);
+		backgroundPanel.add(lblGenre);
+		lblGenre.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGenre.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		return idPatient2;
 
 	}
+	
 
 }

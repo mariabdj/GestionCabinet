@@ -15,10 +15,16 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class ModifInfo {
 
 	public JFrame frame;
+	JPanel backgroundPanel;
 	private JTextField txtNom;
 	private JLabel lblMaladies;
 	private JTextField txtMaldie;
@@ -76,7 +82,19 @@ public class ModifInfo {
 	        } catch (Exception e) {
 			e.printStackTrace();
 		     }
-		
+		ImageIcon backgroundImage = new ImageIcon("src/background.png");
+
+		// Create a panel for holding the background image
+		        backgroundPanel = new JPanel() {
+		            @Override
+		            protected void paintComponent(Graphics g) {
+		                super.paintComponent(g);
+		                g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+		            }
+		        };
+		        backgroundPanel.setBounds(0, 0, 800, 500); // Set bounds to cover the entire frame
+		        backgroundPanel.setLayout(null); // Using null layout for positioning components freely
+
 		frame = new JFrame();
 		frame.setSize(800, 500);
 		frame.setBounds(100, 100, 800, 508);
@@ -235,6 +253,7 @@ public class ModifInfo {
 		btnModifier.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		btnModifier.setBounds(275, 388, 249, 57);
 		frame.getContentPane().add(btnModifier);
+		frame.getContentPane().add(backgroundPanel);
 	}
 
 }
