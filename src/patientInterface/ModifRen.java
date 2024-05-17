@@ -19,6 +19,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class ModifRen {
 
@@ -29,6 +34,8 @@ public class ModifRen {
 	private JTextField txtNHeure;
 	private JTextField txtADate;
 	private JTextField txtAHeure;
+	JPanel backgroundPanel;
+
 
 	/**
 	 * Launch the application.
@@ -68,7 +75,19 @@ public class ModifRen {
 	        } catch (Exception e) {
 			e.printStackTrace();
 	        }
-		     
+		ImageIcon backgroundImage = new ImageIcon("src/background.png");
+
+		// Create a panel for holding the background image
+		        backgroundPanel = new JPanel() {
+		            @Override
+		            protected void paintComponent(Graphics g) {
+		                super.paintComponent(g);
+		                g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+		            }
+		        };
+		        backgroundPanel.setBounds(0, 0, 800, 500); // Set bounds to cover the entire frame
+		        backgroundPanel.setLayout(null); // Using null layout for positioning components freely
+
 		
 		frame = new JFrame();
 		frame.setSize(800, 500);
@@ -206,5 +225,6 @@ public class ModifRen {
 		txtAHeure.setColumns(10);
 		txtAHeure.setBounds(326, 104, 433, 46);
 		frame.getContentPane().add(txtAHeure);
+		frame.getContentPane().add(backgroundPanel);
 	}
 }

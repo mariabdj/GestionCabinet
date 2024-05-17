@@ -11,10 +11,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class DocteurInterface {
 
 	private JFrame frame;
+	JPanel backgroundPanel;
 
 	/**
 	 * Launch the application.
@@ -50,6 +56,20 @@ public class DocteurInterface {
 		frame.setBounds(100, 100, 802, 499);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+   	 ImageIcon backgroundImage = new ImageIcon("src/background.png");
+
+//Create a panel for holding the background image
+   backgroundPanel = new JPanel() {
+       @Override
+       protected void paintComponent(Graphics g) {
+           super.paintComponent(g);
+           g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+       }
+   };
+   backgroundPanel.setBounds(0, 0, 800, 500); // Set bounds to cover the entire frame
+   backgroundPanel.setLayout(null); // Using null layout for positioning components freely
+
 		
 		JButton rempDos = new JButton("Remplir Dossier");
 		rempDos.addMouseListener(new MouseAdapter() {
@@ -153,5 +173,6 @@ public class DocteurInterface {
 		ajtCons.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		ajtCons.setBounds(462, 249, 292, 77);
 		frame.getContentPane().add(ajtCons);
+		frame.getContentPane().add(backgroundPanel);
 	}
 }
