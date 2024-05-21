@@ -1,4 +1,4 @@
-package Secraitaire;
+package SecrétaireInterface;
 
 
 import java.awt.EventQueue;
@@ -6,17 +6,14 @@ import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 
 public class SupprimRen {
@@ -26,6 +23,7 @@ public class SupprimRen {
 	private JTextField txtHeure;
 	private Connection connection;
 	private Statement statement;
+	JPanel backgroundPanel;
 
 
 	/**
@@ -61,35 +59,38 @@ public class SupprimRen {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		
 			//configurer le lien vers la BDD oracle avec toutes les informatons necessaires de la connexion à la BDD
-	      connection= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","SECRAITAIRE", "DADI");
+		    connection= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","GestionCabinet", "medecin");
 		
 	        } catch (Exception e) {
 			e.printStackTrace();
 		     }
 		
+		ImageIcon backgroundImage = new ImageIcon("src/background.png");
+
+		// Create a panel for holding the background image
+		        backgroundPanel = new JPanel() {
+		            @Override
+		            protected void paintComponent(Graphics g) {
+		                super.paintComponent(g);
+		                g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+		            }
+		        };
+		        backgroundPanel.setBounds(0, 0, 800, 505); // Set bounds to cover the entire frame
+		        backgroundPanel.setLayout(null); // Using null layout for positioning components freely
+
+
+		
 		frame = new JFrame();
 		frame.setSize(800, 500);
 		frame.setBounds(100, 100, 800, 500);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-	    JLabel lblNewLabel = new JLabel("Date :");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 33));
-		lblNewLabel.setBounds(38, 133, 166, 46);
-		frame.getContentPane().add(lblNewLabel);
 		
 		txtDtate = new JTextField();
 		txtDtate.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		txtDtate.setColumns(10);
 		txtDtate.setBounds(274, 128, 420, 60);
 		frame.getContentPane().add(txtDtate);
-		
-		JLabel lblHeure = new JLabel("Heure :");
-		lblHeure.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHeure.setFont(new Font("Tahoma", Font.PLAIN, 33));
-		lblHeure.setBounds(53, 244, 166, 46);
-		frame.getContentPane().add(lblHeure);
 		
 		txtHeure = new JTextField();
 		txtHeure.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -140,10 +141,23 @@ public class SupprimRen {
 		btnSupprimer.setBounds(220, 350, 305, 61);
 		frame.getContentPane().add(btnSupprimer);
 		
-		JLabel lblNewLabel_1 = new JLabel("Supprimer un Rrndez-vous");
+		JLabel lblNewLabel_1 = new JLabel("Supprimer un Rendez-vous");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 35));
 		lblNewLabel_1.setBounds(138, 34, 532, 35);
 		frame.getContentPane().add(lblNewLabel_1);
+		frame.getContentPane().add(backgroundPanel);
+		
+	    JLabel lblNewLabel = new JLabel("Date :");
+	    lblNewLabel.setBounds(77, 133, 166, 46);
+	    backgroundPanel.add(lblNewLabel);
+	    lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	    lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 33));
+	    
+	    JLabel lblHeure = new JLabel("Heure :");
+	    lblHeure.setBounds(92, 244, 166, 46);
+	    backgroundPanel.add(lblHeure);
+	    lblHeure.setHorizontalAlignment(SwingConstants.CENTER);
+	    lblHeure.setFont(new Font("Tahoma", Font.PLAIN, 33));
 	}
 
 }

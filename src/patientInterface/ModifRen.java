@@ -95,18 +95,6 @@ public class ModifRen {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNouvelleDate = new JLabel("Nouvelle Date :");
-		lblNouvelleDate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNouvelleDate.setFont(new Font("Tahoma", Font.PLAIN, 36));
-		lblNouvelleDate.setBounds(10, 176, 277, 46);
-		frame.getContentPane().add(lblNouvelleDate);
-		
-		JLabel lblNouvelleHeure = new JLabel("Nouvelle Heure :");
-		lblNouvelleHeure.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNouvelleHeure.setFont(new Font("Tahoma", Font.PLAIN, 36));
-		lblNouvelleHeure.setBounds(10, 253, 296, 46);
-		frame.getContentPane().add(lblNouvelleHeure);
-		
 		txtNDate = new JTextField();
 		txtNDate.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		txtNDate.setColumns(10);
@@ -202,23 +190,11 @@ public class ModifRen {
 		txtNHeure.setBounds(326, 253, 433, 46);
 		frame.getContentPane().add(txtNHeure);
 		
-		JLabel lblAncienneDate = new JLabel("Ancienne Date :");
-		lblAncienneDate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAncienneDate.setFont(new Font("Tahoma", Font.PLAIN, 36));
-		lblAncienneDate.setBounds(10, 27, 277, 46);
-		frame.getContentPane().add(lblAncienneDate);
-		
 		txtADate = new JTextField();
 		txtADate.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		txtADate.setColumns(10);
 		txtADate.setBounds(326, 30, 433, 46);
 		frame.getContentPane().add(txtADate);
-		
-		JLabel lblAncienneHeure = new JLabel("Ancienne Heure :");
-		lblAncienneHeure.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAncienneHeure.setFont(new Font("Tahoma", Font.PLAIN, 36));
-		lblAncienneHeure.setBounds(10, 104, 296, 46);
-		frame.getContentPane().add(lblAncienneHeure);
 		
 		txtAHeure = new JTextField();
 		txtAHeure.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -226,5 +202,29 @@ public class ModifRen {
 		txtAHeure.setBounds(326, 104, 433, 46);
 		frame.getContentPane().add(txtAHeure);
 		frame.getContentPane().add(backgroundPanel);
+		
+		JLabel lblAncienneDate = new JLabel("Ancienne Date :");
+		lblAncienneDate.setBounds(50, 28, 277, 46);
+		backgroundPanel.add(lblAncienneDate);
+		lblAncienneDate.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAncienneDate.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		
+		JLabel lblAncienneHeure = new JLabel("Ancienne Heure :");
+		lblAncienneHeure.setBounds(50, 105, 296, 46);
+		backgroundPanel.add(lblAncienneHeure);
+		lblAncienneHeure.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAncienneHeure.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		
+		JLabel lblNouvelleDate = new JLabel("Nouvelle Date :");
+		lblNouvelleDate.setBounds(50, 177, 277, 46);
+		backgroundPanel.add(lblNouvelleDate);
+		lblNouvelleDate.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNouvelleDate.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		
+		JLabel lblNouvelleHeure = new JLabel("Nouvelle Heure :");
+		lblNouvelleHeure.setBounds(50, 254, 296, 46);
+		backgroundPanel.add(lblNouvelleHeure);
+		lblNouvelleHeure.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNouvelleHeure.setFont(new Font("Tahoma", Font.PLAIN, 28));
 	}
 }

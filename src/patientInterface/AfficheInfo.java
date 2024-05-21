@@ -88,101 +88,104 @@ public class AfficheInfo {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		
+		frame.getContentPane().add(backgroundPanel);
+		
 		JLabel lblNewLabel = new JLabel("Nom :");
+		lblNewLabel.setBounds(109, 43, 139, 63);
+		backgroundPanel.add(lblNewLabel);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel.setBounds(10, 63, 139, 63);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JLabel lblPrnom = new JLabel("Prénom :");
-		lblPrnom.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrnom.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblPrnom.setBounds(10, 157, 139, 63);
-		frame.getContentPane().add(lblPrnom);
-		
-		JLabel lblEmail = new JLabel("E-mail :");
-		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblEmail.setBounds(10, 245, 139, 63);
-		frame.getContentPane().add(lblEmail);
-		
-		JLabel lblGenre = new JLabel("Genre :");
-		lblGenre.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGenre.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblGenre.setBounds(10, 329, 139, 63);
-		frame.getContentPane().add(lblGenre);
 		
 		JLabel txtNom = new JLabel("Info");
+		txtNom.setBounds(224, 43, 160, 63);
+		backgroundPanel.add(txtNom);
 		txtNom.setHorizontalAlignment(SwingConstants.LEFT);
 		txtNom.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtNom.setBounds(125, 63, 247, 63);
-		frame.getContentPane().add(txtNom);
+		
+		JLabel lblPrnom = new JLabel("Prénom :");
+		lblPrnom.setBounds(109, 137, 139, 63);
+		backgroundPanel.add(lblPrnom);
+		lblPrnom.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPrnom.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		
 		JLabel txtPrenom = new JLabel("Info");
+		txtPrenom.setBounds(242, 136, 168, 63);
+		backgroundPanel.add(txtPrenom);
 		txtPrenom.setHorizontalAlignment(SwingConstants.LEFT);
 		txtPrenom.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtPrenom.setBounds(143, 156, 247, 63);
-		frame.getContentPane().add(txtPrenom);
+		
+		JLabel lblEmail = new JLabel("E-mail :");
+		lblEmail.setBounds(109, 225, 139, 63);
+		backgroundPanel.add(lblEmail);
+		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		
 		JLabel txtEmail = new JLabel("Info");
+		txtEmail.setBounds(242, 224, 119, 63);
+		backgroundPanel.add(txtEmail);
 		txtEmail.setHorizontalAlignment(SwingConstants.LEFT);
 		txtEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtEmail.setBounds(143, 244, 230, 63);
-		frame.getContentPane().add(txtEmail);
+		
+		JLabel lblGenre = new JLabel("Genre :");
+		lblGenre.setBounds(127, 309, 139, 63);
+		backgroundPanel.add(lblGenre);
+		lblGenre.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGenre.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		
 		JLabel txtGenre = new JLabel("Info");
+		txtGenre.setBounds(242, 308, 139, 63);
+		backgroundPanel.add(txtGenre);
 		txtGenre.setHorizontalAlignment(SwingConstants.LEFT);
 		txtGenre.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtGenre.setBounds(125, 328, 247, 63);
-		frame.getContentPane().add(txtGenre);
-		
-		JLabel lblMaladies = new JLabel("Maladies :");
-		lblMaladies.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMaladies.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblMaladies.setBounds(386, 63, 139, 63);
-		frame.getContentPane().add(lblMaladies);
-		
-		JLabel lblNewLabel_3 = new JLabel("Tel :");
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_3.setBounds(386, 157, 139, 63);
-		frame.getContentPane().add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_5 = new JLabel("Date naissance :");
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_5.setBounds(386, 245, 168, 63);
-		frame.getContentPane().add(lblNewLabel_5);
-		
-		JLabel lblNewLabel_7 = new JLabel("Adresse :");
-		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_7.setBounds(386, 329, 139, 63);
-		frame.getContentPane().add(lblNewLabel_7);
-		
-		JLabel txtMaladie = new JLabel("Info");
-		txtMaladie.setHorizontalAlignment(SwingConstants.LEFT);
-		txtMaladie.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtMaladie.setBounds(514, 63, 247, 63);
-		frame.getContentPane().add(txtMaladie);
-		
-		JLabel txtInfo = new JLabel("Info");
-		txtInfo.setHorizontalAlignment(SwingConstants.LEFT);
-		txtInfo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtInfo.setBounds(487, 157, 247, 63);
-		frame.getContentPane().add(txtInfo);
-		
-		JLabel txtDateNai = new JLabel("Info");
-		txtDateNai.setHorizontalAlignment(SwingConstants.LEFT);
-		txtDateNai.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtDateNai.setBounds(560, 245, 201, 63);
-		frame.getContentPane().add(txtDateNai);
 		
 		JLabel txtAdresse = new JLabel("Info");
+		txtAdresse.setBounds(507, 309, 247, 63);
+		backgroundPanel.add(txtAdresse);
 		txtAdresse.setHorizontalAlignment(SwingConstants.LEFT);
 		txtAdresse.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtAdresse.setBounds(514, 329, 247, 63);
-		frame.getContentPane().add(txtAdresse);
+		
+		JLabel lblNewLabel_7 = new JLabel("Adresse :");
+		lblNewLabel_7.setBounds(379, 309, 139, 63);
+		backgroundPanel.add(lblNewLabel_7);
+		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		
+		JLabel txtDateNai = new JLabel("Info");
+		txtDateNai.setBounds(553, 225, 201, 63);
+		backgroundPanel.add(txtDateNai);
+		txtDateNai.setHorizontalAlignment(SwingConstants.LEFT);
+		txtDateNai.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		JLabel lblNewLabel_5 = new JLabel("Date naissance :");
+		lblNewLabel_5.setBounds(379, 225, 168, 63);
+		backgroundPanel.add(lblNewLabel_5);
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		
+		JLabel lblNewLabel_3 = new JLabel("Tel :");
+		lblNewLabel_3.setBounds(379, 137, 139, 63);
+		backgroundPanel.add(lblNewLabel_3);
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		
+		JLabel txtInfo = new JLabel("Info");
+		txtInfo.setBounds(480, 137, 247, 63);
+		backgroundPanel.add(txtInfo);
+		txtInfo.setHorizontalAlignment(SwingConstants.LEFT);
+		txtInfo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		JLabel txtMaladie = new JLabel("Info");
+		txtMaladie.setBounds(507, 43, 247, 63);
+		backgroundPanel.add(txtMaladie);
+		txtMaladie.setHorizontalAlignment(SwingConstants.LEFT);
+		txtMaladie.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		JLabel lblMaladies = new JLabel("Maladies :");
+		lblMaladies.setBounds(379, 43, 139, 63);
+		backgroundPanel.add(lblMaladies);
+		lblMaladies.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMaladies.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		
 		try {
 		    // Création de la requête SQL pour sélectionner les informations du patient avec le matricule "01"
@@ -218,7 +221,6 @@ public class AfficheInfo {
 		    e.printStackTrace();
 		}
 
-		frame.getContentPane().add(backgroundPanel);
 	}
 
 }
