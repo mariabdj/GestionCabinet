@@ -104,165 +104,165 @@ public class ModifInfo {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
-        txtNom = new JTextField();
-        txtNom.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        txtNom.setBounds(188, 42, 200, 48);
-        frame.getContentPane().add(txtNom);
-        txtNom.setColumns(10);
-
-        lblMaladies = new JLabel("Maladies :");
-        lblMaladies.setHorizontalAlignment(SwingConstants.CENTER);
-        lblMaladies.setFont(new Font("Tahoma", Font.PLAIN, 22));
-        lblMaladies.setBounds(398, 30, 139, 63);
-        frame.getContentPane().add(lblMaladies);
-
-        txtMaldie = new JTextField();
-        txtMaldie.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        txtMaldie.setColumns(10);
-        txtMaldie.setBounds(576, 42, 200, 48);
-        frame.getContentPane().add(txtMaldie);
-
-        txtPrenom = new JTextField();
-        txtPrenom.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        txtPrenom.setColumns(10);
-        txtPrenom.setBounds(188, 136, 200, 48);
-        frame.getContentPane().add(txtPrenom);
-
-        lblNewLabel_3 = new JLabel("Tel :");
-        lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 22));
-        lblNewLabel_3.setBounds(398, 124, 139, 63);
-        frame.getContentPane().add(lblNewLabel_3);
-
-        txtTel = new JTextField();
-        txtTel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        txtTel.setColumns(10);
-        txtTel.setBounds(576, 136, 200, 48);
-        frame.getContentPane().add(txtTel);
-
-        txtEmail = new JTextField();
-        txtEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        txtEmail.setColumns(10);
-        txtEmail.setBounds(188, 224, 200, 48);
-        frame.getContentPane().add(txtEmail);
-
-        lblNewLabel_5 = new JLabel("Date naissance :");
-        lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 22));
-        lblNewLabel_5.setBounds(398, 212, 168, 63);
-        frame.getContentPane().add(lblNewLabel_5);
-
-        txtDateNai = new JTextField();
-        txtDateNai.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        txtDateNai.setColumns(10);
-        txtDateNai.setBounds(576, 224, 200, 48);
-        frame.getContentPane().add(txtDateNai);
-
         genderGroup = new ButtonGroup();
-
-        lblNewLabel_7 = new JLabel("Adresse :");
-        lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 22));
-        lblNewLabel_7.setBounds(398, 296, 139, 63);
-        frame.getContentPane().add(lblNewLabel_7);
-
-        txtAdresse = new JTextField();
-        txtAdresse.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        txtAdresse.setColumns(10);
-        txtAdresse.setBounds(576, 308, 200, 48);
-        frame.getContentPane().add(txtAdresse);
-
-        btnModifier = new JButton("Modifier");
-        btnModifier.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                    // Create a new instance of the statement
-                    statement = connection.createStatement();
-
-                    // Retrieve values from the input fields
-                    String nouveau_nom = txtNom.getText();
-                    String nouveau_prenom = txtPrenom.getText();
-                    String nouvel_email = txtEmail.getText();
-                    String nouveau_genre = maleRadioButton.isSelected() ? "M" : "F";
-                    String nouvelles_maladies = txtMaldie.getText();
-                    String nouvelle_adresse = txtAdresse.getText();
-                    String nouveau_numtel = txtTel.getText();
-                    String nouvelle_date_de_naissance = txtDateNai.getText();
-                    String matricule_patient = mat;
-
-                    String sql = "UPDATE Patient SET "
-                            + "nom = '" + nouveau_nom + "', "
-                            + "prenom = '" + nouveau_prenom + "', "
-                            + "email = '" + nouvel_email + "', "
-                            + "gender = '" + nouveau_genre + "', "
-                            + "maladies = '" + nouvelles_maladies + "', "
-                            + "adresse = '" + nouvelle_adresse + "', "
-                            + "numtel = '" + nouveau_numtel + "', "
-                            + "birthdate = '" + nouvelle_date_de_naissance + "' "
-                            + "WHERE matPat = '" + matricule_patient + "'";
-
-                    // Execute the query
-                    statement.execute(sql);
-
-                    // Clear all input fields
-                    txtNom.setText("");
-                    txtPrenom.setText("");
-                    txtEmail.setText("");
-                    genderGroup.clearSelection();
-                    txtAdresse.setText("");
-                    txtMaldie.setText("");
-                    txtTel.setText("");
-                    txtDateNai.setText("");
-
-                    // Inform the user that the update was successful
-                    JOptionPane.showMessageDialog(btnModifier, "Vous avez bien mis à jour");
-
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                    JOptionPane.showMessageDialog(btnModifier, "Erreur");
-                }
-            }
-        });
-        btnModifier.setFont(new Font("Tahoma", Font.PLAIN, 28));
-        btnModifier.setBounds(275, 388, 249, 57);
-        frame.getContentPane().add(btnModifier);
         frame.getContentPane().add(backgroundPanel);
         
                 JLabel lblNewLabel = new JLabel("Nom :");
-                lblNewLabel.setBounds(61, 31, 139, 63);
+                lblNewLabel.setBounds(100, 55, 100, 20);
                 backgroundPanel.add(lblNewLabel);
-                lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
-                lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
                 
                         lblPrnom = new JLabel("Prénom :");
-                        lblPrnom.setBounds(61, 122, 139, 63);
+                        lblPrnom.setBounds(100, 95, 100, 20);
                         backgroundPanel.add(lblPrnom);
-                        lblPrnom.setHorizontalAlignment(SwingConstants.CENTER);
-                        lblPrnom.setFont(new Font("Tahoma", Font.PLAIN, 22));
+                        lblPrnom.setHorizontalAlignment(SwingConstants.LEFT);
+                        lblPrnom.setFont(new Font("Tahoma", Font.PLAIN, 20));
                         
                                 lblEmail = new JLabel("E-mail :");
-                                lblEmail.setBounds(61, 212, 139, 63);
+                                lblEmail.setBounds(100, 215, 100, 20);
                                 backgroundPanel.add(lblEmail);
-                                lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
-                                lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 22));
+                                lblEmail.setHorizontalAlignment(SwingConstants.LEFT);
+                                lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
                                 
                                         lblGenre = new JLabel("Genre :");
-                                        lblGenre.setBounds(103, 294, 139, 63);
+                                        lblGenre.setBounds(187, 336, 100, 20);
                                         backgroundPanel.add(lblGenre);
-                                        lblGenre.setHorizontalAlignment(SwingConstants.CENTER);
-                                        lblGenre.setFont(new Font("Tahoma", Font.PLAIN, 22));
+                                        lblGenre.setHorizontalAlignment(SwingConstants.LEFT);
+                                        lblGenre.setFont(new Font("Tahoma", Font.PLAIN, 20));
                                         
                                                 maleRadioButton = new JRadioButton("M");
-                                                maleRadioButton.setBounds(248, 311, 50, 30);
+                                                maleRadioButton.setBounds(386, 331, 50, 30);
                                                 backgroundPanel.add(maleRadioButton);
                                                 maleRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
                                                 genderGroup.add(maleRadioButton);
                                                 
                                                         femaleRadioButton = new JRadioButton("F");
-                                                        femaleRadioButton.setBounds(300, 311, 50, 30);
+                                                        femaleRadioButton.setBounds(455, 331, 50, 30);
                                                         backgroundPanel.add(femaleRadioButton);
                                                         femaleRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
                                                         genderGroup.add(femaleRadioButton);
+                                                        
+                                                                lblNewLabel_5 = new JLabel("Date naissance :");
+                                                                lblNewLabel_5.setBounds(100, 135, 154, 20);
+                                                                backgroundPanel.add(lblNewLabel_5);
+                                                                lblNewLabel_5.setHorizontalAlignment(SwingConstants.LEFT);
+                                                                lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                                                                
+                                                                        txtNom = new JTextField();
+                                                                        txtNom.setBounds(376, 50, 300, 30);
+                                                                        backgroundPanel.add(txtNom);
+                                                                        txtNom.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                                                                        txtNom.setColumns(10);
+                                                                        
+                                                                                txtPrenom = new JTextField();
+                                                                                txtPrenom.setBounds(376, 90, 300, 30);
+                                                                                backgroundPanel.add(txtPrenom);
+                                                                                txtPrenom.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                                                                                txtPrenom.setColumns(10);
+                                                                                
+                                                                                        txtDateNai = new JTextField();
+                                                                                        txtDateNai.setBounds(376, 130, 300, 30);
+                                                                                        backgroundPanel.add(txtDateNai);
+                                                                                        txtDateNai.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                                                                                        txtDateNai.setColumns(10);
+                                                                                        
+                                                                                                lblMaladies = new JLabel("Maladies :");
+                                                                                                lblMaladies.setBounds(100, 175, 100, 20);
+                                                                                                backgroundPanel.add(lblMaladies);
+                                                                                                lblMaladies.setHorizontalAlignment(SwingConstants.LEFT);
+                                                                                                lblMaladies.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                                                                                                
+                                                                                                        txtMaldie = new JTextField();
+                                                                                                        txtMaldie.setBounds(376, 170, 300, 30);
+                                                                                                        backgroundPanel.add(txtMaldie);
+                                                                                                        txtMaldie.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                                                                                                        txtMaldie.setColumns(10);
+                                                                                                        
+                                                                                                                lblNewLabel_7 = new JLabel("Adresse :");
+                                                                                                                lblNewLabel_7.setBounds(100, 255, 100, 20);
+                                                                                                                backgroundPanel.add(lblNewLabel_7);
+                                                                                                                lblNewLabel_7.setHorizontalAlignment(SwingConstants.LEFT);
+                                                                                                                lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                                                                                                                
+                                                                                                                        txtAdresse = new JTextField();
+                                                                                                                        txtAdresse.setBounds(376, 250, 300, 30);
+                                                                                                                        backgroundPanel.add(txtAdresse);
+                                                                                                                        txtAdresse.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                                                                                                                        txtAdresse.setColumns(10);
+                                                                                                                        
+                                                                                                                                lblNewLabel_3 = new JLabel("Tel :");
+                                                                                                                                lblNewLabel_3.setBounds(100, 294, 100, 20);
+                                                                                                                                backgroundPanel.add(lblNewLabel_3);
+                                                                                                                                lblNewLabel_3.setHorizontalAlignment(SwingConstants.LEFT);
+                                                                                                                                lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                                                                                                                                
+                                                                                                                                        txtTel = new JTextField();
+                                                                                                                                        txtTel.setBounds(376, 290, 300, 29);
+                                                                                                                                        backgroundPanel.add(txtTel);
+                                                                                                                                        txtTel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                                                                                                                                        txtTel.setColumns(10);
+                                                                                                                                        
+                                                                                                                                                btnModifier = new JButton("Modifier");
+                                                                                                                                                btnModifier.setBounds(274, 400, 231, 51);
+                                                                                                                                                backgroundPanel.add(btnModifier);
+                                                                                                                                                btnModifier.addMouseListener(new MouseAdapter() {
+                                                                                                                                                    @Override
+                                                                                                                                                    public void mouseClicked(MouseEvent e) {
+                                                                                                                                                        try {
+                                                                                                                                                            // Create a new instance of the statement
+                                                                                                                                                            statement = connection.createStatement();
+
+                                                                                                                                                            // Retrieve values from the input fields
+                                                                                                                                                            String nouveau_nom = txtNom.getText();
+                                                                                                                                                            String nouveau_prenom = txtPrenom.getText();
+                                                                                                                                                            String nouvel_email = txtEmail.getText();
+                                                                                                                                                            String nouveau_genre = maleRadioButton.isSelected() ? "M" : "F";
+                                                                                                                                                            String nouvelles_maladies = txtMaldie.getText();
+                                                                                                                                                            String nouvelle_adresse = txtAdresse.getText();
+                                                                                                                                                            String nouveau_numtel = txtTel.getText();
+                                                                                                                                                            String nouvelle_date_de_naissance = txtDateNai.getText();
+                                                                                                                                                            String matricule_patient = mat;
+
+                                                                                                                                                            String sql = "UPDATE Patient SET "
+                                                                                                                                                                    + "nom = '" + nouveau_nom + "', "
+                                                                                                                                                                    + "prenom = '" + nouveau_prenom + "', "
+                                                                                                                                                                    + "email = '" + nouvel_email + "', "
+                                                                                                                                                                    + "gender = '" + nouveau_genre + "', "
+                                                                                                                                                                    + "maladies = '" + nouvelles_maladies + "', "
+                                                                                                                                                                    + "adresse = '" + nouvelle_adresse + "', "
+                                                                                                                                                                    + "numtel = '" + nouveau_numtel + "', "
+                                                                                                                                                                    + "birthdate = '" + nouvelle_date_de_naissance + "' "
+                                                                                                                                                                    + "WHERE matPat = '" + matricule_patient + "'";
+
+                                                                                                                                                            // Execute the query
+                                                                                                                                                            statement.execute(sql);
+
+                                                                                                                                                            // Clear all input fields
+                                                                                                                                                            txtNom.setText("");
+                                                                                                                                                            txtPrenom.setText("");
+                                                                                                                                                            txtEmail.setText("");
+                                                                                                                                                            genderGroup.clearSelection();
+                                                                                                                                                            txtAdresse.setText("");
+                                                                                                                                                            txtMaldie.setText("");
+                                                                                                                                                            txtTel.setText("");
+                                                                                                                                                            txtDateNai.setText("");
+
+                                                                                                                                                            // Inform the user that the update was successful
+                                                                                                                                                            JOptionPane.showMessageDialog(btnModifier, "Vous avez bien mis à jour");
+
+                                                                                                                                                        } catch (SQLException e1) {
+                                                                                                                                                            e1.printStackTrace();
+                                                                                                                                                            JOptionPane.showMessageDialog(btnModifier, "Erreur");
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                });
+                                                                                                                                                btnModifier.setFont(new Font("Tahoma", Font.PLAIN, 28));
+                                                                                                                                                
+                                                                                                                                                        txtEmail = new JTextField();
+                                                                                                                                                        txtEmail.setBounds(376, 210, 300, 30);
+                                                                                                                                                        backgroundPanel.add(txtEmail);
+                                                                                                                                                        txtEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
+                                                                                                                                                        txtEmail.setColumns(10);
     }
 }
