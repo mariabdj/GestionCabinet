@@ -237,7 +237,7 @@ public class AjoutPatient {
         frame.getContentPane().add(backgroundPanel);
         
                 JLabel lblSexe = new JLabel("Genre :");
-                lblSexe.setBounds(140, 335, 100, 20);
+                lblSexe.setBounds(187, 336, 100, 20);
                 backgroundPanel.add(lblSexe);
                 lblSexe.setFont(new Font("Tahoma", Font.PLAIN, 20));
     }
