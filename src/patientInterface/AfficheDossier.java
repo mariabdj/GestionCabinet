@@ -92,29 +92,29 @@ public class AfficheDossier {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Patient :");
+		lblNewLabel.setBounds(85, 11, 103, 37);
+		backgroundPanel.add(lblNewLabel);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel.setBounds(10, 11, 103, 37);
-		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNomPrnom = new JLabel("Nom, Prénom");
+		lblNomPrnom.setBounds(178, 11, 363, 37);
+		backgroundPanel.add(lblNomPrnom);
 		lblNomPrnom.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNomPrnom.setBounds(103, 11, 363, 37);
-		frame.getContentPane().add(lblNomPrnom);
 		
 		JLabel lblGroupeSanguin = new JLabel("Groupe Sanguin :");
+		lblGroupeSanguin.setBounds(388, 11, 179, 37);
+		backgroundPanel.add(lblGroupeSanguin);
 		lblGroupeSanguin.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblGroupeSanguin.setBounds(552, 11, 179, 37);
-		frame.getContentPane().add(lblGroupeSanguin);
 		
 		JLabel txtGS = new JLabel("O");
+		txtGS.setBounds(566, 11, 45, 37);
+		backgroundPanel.add(txtGS);
 		txtGS.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		txtGS.setBounds(730, 11, 45, 37);
-		frame.getContentPane().add(txtGS);
 		
 		JLabel lblLesConsultation = new JLabel("Les Consultation :");
+		lblLesConsultation.setBounds(39, 59, 179, 37);
+		backgroundPanel.add(lblLesConsultation);
 		lblLesConsultation.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblLesConsultation.setBounds(10, 59, 179, 37);
-		frame.getContentPane().add(lblLesConsultation);
 		
 		tableCons = new JTable();
 		tableCons.setBounds(10, 107, 765, 346);

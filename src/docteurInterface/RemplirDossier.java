@@ -126,38 +126,17 @@ public class RemplirDossier {
 		lblNewLabel_1.setBounds(298, 106, 212, 58);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		lblDiagnostique = new JLabel("Diagnostique :");
-		lblDiagnostique.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblDiagnostique.setBounds(10, 178, 233, 68);
-		frame.getContentPane().add(lblDiagnostique);
-		
-		lblMdicament = new JLabel("Médicament :");
-		lblMdicament.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblMdicament.setBounds(10, 268, 233, 68);
-		frame.getContentPane().add(lblMdicament);
-		
-		txtDate = new JLabel("Date :");
-		txtDate.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		txtDate.setBounds(10, 347, 233, 68);
-		frame.getContentPane().add(txtDate);
-		
 		txtDiag = new JTextField();
 		txtDiag.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		txtDiag.setColumns(10);
-		txtDiag.setBounds(196, 190, 554, 45);
+		txtDiag.setBounds(327, 190, 423, 45);
 		frame.getContentPane().add(txtDiag);
 		
 		txtMed = new JTextField();
 		txtMed.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		txtMed.setColumns(10);
-		txtMed.setBounds(196, 277, 554, 45);
+		txtMed.setBounds(327, 277, 423, 45);
 		frame.getContentPane().add(txtMed);
-		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		textField_2.setColumns(10);
-		textField_2.setBounds(111, 359, 197, 45);
-		frame.getContentPane().add(textField_2);
 		
 		btnConf = new JButton("Confirmer");
 		btnConf.addMouseListener(new MouseAdapter() {
@@ -203,5 +182,26 @@ public class RemplirDossier {
 		btnConf.setBounds(543, 358, 207, 58);
 		frame.getContentPane().add(btnConf);
 		frame.getContentPane().add(backgroundPanel);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(325, 365, 197, 45);
+		backgroundPanel.add(textField_2);
+		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		textField_2.setColumns(10);
+		
+		txtDate = new JLabel("Date :");
+		txtDate.setBounds(236, 353, 233, 68);
+		backgroundPanel.add(txtDate);
+		txtDate.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		
+		lblDiagnostique = new JLabel("Diagnostique :");
+		lblDiagnostique.setBounds(139, 176, 233, 68);
+		backgroundPanel.add(lblDiagnostique);
+		lblDiagnostique.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		
+		lblMdicament = new JLabel("Médicament :");
+		lblMdicament.setBounds(139, 266, 233, 68);
+		backgroundPanel.add(lblMdicament);
+		lblMdicament.setFont(new Font("Tahoma", Font.PLAIN, 26));
 	}
 }

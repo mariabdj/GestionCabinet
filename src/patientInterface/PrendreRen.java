@@ -93,30 +93,6 @@ public class PrendreRen {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Date :");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 36));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(31, 42, 166, 46);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JLabel lblHeure = new JLabel("Heure :");
-		lblHeure.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHeure.setFont(new Font("Tahoma", Font.PLAIN, 36));
-		lblHeure.setBounds(45, 165, 166, 46);
-		frame.getContentPane().add(lblHeure);
-		
-		txtDate = new JTextField();
-		txtDate.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		txtDate.setBounds(218, 40, 433, 71);
-		frame.getContentPane().add(txtDate);
-		txtDate.setColumns(10);
-		
-		txtHeure = new JTextField();
-		txtHeure.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		txtHeure.setColumns(10);
-		txtHeure.setBounds(221, 154, 433, 71);
-		frame.getContentPane().add(txtHeure);
-		
 		JButton btnDrPrincipale = new JButton("Dr. Principale");
 		btnDrPrincipale.addMouseListener(new MouseAdapter() {
 			@Override
@@ -186,5 +162,29 @@ public class PrendreRen {
 		btnDrRemplacant.setBounds(435, 332, 305, 85);
 		frame.getContentPane().add(btnDrRemplacant);
 		frame.getContentPane().add(backgroundPanel);
+		
+		JLabel lblHeure = new JLabel("Heure :");
+		lblHeure.setBounds(69, 194, 166, 46);
+		backgroundPanel.add(lblHeure);
+		lblHeure.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHeure.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		
+		txtHeure = new JTextField();
+		txtHeure.setBounds(245, 183, 433, 71);
+		backgroundPanel.add(txtHeure);
+		txtHeure.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		txtHeure.setColumns(10);
+		
+		txtDate = new JTextField();
+		txtDate.setBounds(245, 65, 433, 71);
+		backgroundPanel.add(txtDate);
+		txtDate.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		txtDate.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Date :");
+		lblNewLabel.setBounds(58, 67, 166, 46);
+		backgroundPanel.add(lblNewLabel);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 	}
 }

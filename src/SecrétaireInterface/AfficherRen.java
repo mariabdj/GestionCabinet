@@ -1,17 +1,17 @@
-package Secraitaire;
+package SecrétaireInterface;
 
 import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
 import java.awt.Font;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class AfficherRen {
 
@@ -20,6 +20,7 @@ public class AfficherRen {
     private Connection connection;
     private Statement statement;
     private DefaultTableModel model;
+    JPanel backgroundPanel;
 
     /**
      * Launch the application.
@@ -51,8 +52,23 @@ public class AfficherRen {
         // Setup the frame
         frame = new JFrame();
         frame.setBounds(100, 100, 800, 600);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
+        
+		ImageIcon backgroundImage = new ImageIcon("src/background.png");
+
+     // Create a panel for holding the background image
+             backgroundPanel = new JPanel() {
+                 @Override
+                 protected void paintComponent(Graphics g) {
+                     super.paintComponent(g);
+                     g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+                 }
+             };
+             backgroundPanel.setBounds(0, 0, 800, 505); // Set bounds to cover the entire frame
+             backgroundPanel.setLayout(null); // Using null layout for positioning components freely
+
+
 
         // Title label
         JLabel lblNewLabel = new JLabel("Liste des Rendez-Vous");
@@ -84,7 +100,7 @@ public class AfficherRen {
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
             // Connect to the database
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "SECRAITAIRE", "DADI");
+		    connection= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","GestionCabinet", "medecin");
             statement = connection.createStatement();
 
             // Execute the query
@@ -114,5 +130,6 @@ public class AfficherRen {
             e.printStackTrace();
             JOptionPane.showMessageDialog(frame, "Erreur lors du chargement des rendez-vous.");
         }
+        frame.getContentPane().add(backgroundPanel);
     }
 }

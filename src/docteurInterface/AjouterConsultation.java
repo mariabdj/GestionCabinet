@@ -108,38 +108,17 @@ public class AjouterConsultation {
 		lblNewLabel_1.setBounds(311, 111, 212, 58);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblDiagnostique = new JLabel("Diagnostique :");
-		lblDiagnostique.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblDiagnostique.setBounds(23, 183, 233, 68);
-		frame.getContentPane().add(lblDiagnostique);
-		
 		txtDiag = new JTextField();
 		txtDiag.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		txtDiag.setColumns(10);
-		txtDiag.setBounds(209, 195, 554, 45);
+		txtDiag.setBounds(318, 195, 445, 45);
 		frame.getContentPane().add(txtDiag);
-		
-		JLabel lblMdicament = new JLabel("Médicament :");
-		lblMdicament.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblMdicament.setBounds(23, 273, 233, 68);
-		frame.getContentPane().add(lblMdicament);
 		
 		txtMed = new JTextField();
 		txtMed.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		txtMed.setColumns(10);
-		txtMed.setBounds(209, 282, 554, 45);
+		txtMed.setBounds(318, 282, 445, 45);
 		frame.getContentPane().add(txtMed);
-		
-		JLabel jlabel = new JLabel("Date :");
-		jlabel.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		jlabel.setBounds(23, 352, 233, 68);
-		frame.getContentPane().add(jlabel);
-		
-		txtDate = new JTextField();
-		txtDate.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		txtDate.setColumns(10);
-		txtDate.setBounds(124, 364, 197, 45);
-		frame.getContentPane().add(txtDate);
 		
 		JButton btnConf = new JButton("Confirmer");
 		btnConf.addMouseListener(new MouseAdapter() {
@@ -175,6 +154,27 @@ public class AjouterConsultation {
 		btnConf.setBounds(556, 363, 207, 58);
 		frame.getContentPane().add(btnConf);
 		frame.getContentPane().add(backgroundPanel);
+		
+		JLabel jlabel = new JLabel("Date :");
+		jlabel.setBounds(221, 357, 233, 68);
+		backgroundPanel.add(jlabel);
+		jlabel.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		
+		txtDate = new JTextField();
+		txtDate.setBounds(322, 369, 197, 45);
+		backgroundPanel.add(txtDate);
+		txtDate.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		txtDate.setColumns(10);
+		
+		JLabel lblDiagnostique = new JLabel("Diagnostique :");
+		lblDiagnostique.setBounds(141, 183, 233, 68);
+		backgroundPanel.add(lblDiagnostique);
+		lblDiagnostique.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		
+		JLabel lblMdicament = new JLabel("Médicament :");
+		lblMdicament.setBounds(151, 266, 233, 68);
+		backgroundPanel.add(lblMdicament);
+		lblMdicament.setFont(new Font("Tahoma", Font.PLAIN, 26));
 	}
 
 }

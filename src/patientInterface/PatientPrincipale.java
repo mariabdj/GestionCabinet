@@ -105,10 +105,14 @@ public class PatientPrincipale {
 		frame.getContentPane().add(btnAfficherDossier);
 		
 		JButton btnModifezRendezvous = new JButton("Modifez Rendez-vous");
+		btnModifezRendezvous.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnModifezRendezvous.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ModifInfo modifInfo = new ModifInfo(mat);
+				ModifRen modifInfo = new ModifRen();
 		        modifInfo.frame.setVisible(true);
 			}
 		});

@@ -1,20 +1,19 @@
-package Secraitaire;
+package SecrétaireInterface;
 
 import java.awt.EventQueue;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.SwingConstants;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class AjoutPatient {
 
@@ -26,9 +25,12 @@ public class AjoutPatient {
     private JTextField Adresse;
     private JTextField numtel;
     private JTextField email;
-    private JTextField gender;
     private Connection connection;
     private PreparedStatement preparedStatement;
+    JPanel backgroundPanel;
+    private JRadioButton maleRadioButton;
+    private JRadioButton femaleRadioButton;
+    private ButtonGroup genderGroup;
 
     /**
      * Launch the application.
@@ -59,21 +61,34 @@ public class AjoutPatient {
     private void initialize() {
 
         try {
-            // Chargement du driver ojdbc pour se connecter à une BDD Oracle
+            // Load the Oracle JDBC driver
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
-            // Configurer le lien vers la BDD oracle avec toutes les informations nécessaires de la connexion à la BDD
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "SECRAITAIRE", "DADI");
-            connection.setAutoCommit(false);  // Désactiver le mode autocommit
+            // Configure the connection to the Oracle database
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","GestionCabinet", "medecin");
+            connection.setAutoCommit(false);  // Disable auto-commit mode
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        ImageIcon backgroundImage = new ImageIcon("src/background.png");
+
+        // Create a panel for holding the background image
+        backgroundPanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        backgroundPanel.setBounds(0, 0, 800, 505); // Set bounds to cover the entire frame
+        backgroundPanel.setLayout(null); // Using null layout for positioning components freely
+
         frame = new JFrame();
         frame.setSize(800, 500);
         frame.setBounds(100, 100, 800, 500);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
         JLabel lblNewLabel_1 = new JLabel("Ajouter un nouveau patient");
@@ -159,16 +174,19 @@ public class AjoutPatient {
         numtel.setBounds(376, 290, 300, 30);
         frame.getContentPane().add(numtel);
 
-        JLabel lblSexe = new JLabel("Genre :");
-        lblSexe.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblSexe.setBounds(100, 335, 100, 20);
-        frame.getContentPane().add(lblSexe);
+        maleRadioButton = new JRadioButton("M");
+        maleRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        maleRadioButton.setBounds(376, 330, 50, 30);
+        frame.getContentPane().add(maleRadioButton);
 
-        gender = new JTextField();
-        gender.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        gender.setColumns(10);
-        gender.setBounds(376, 330, 300, 30);
-        frame.getContentPane().add(gender);
+        femaleRadioButton = new JRadioButton("F");
+        femaleRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        femaleRadioButton.setBounds(430, 330, 50, 30);
+        frame.getContentPane().add(femaleRadioButton);
+
+        genderGroup = new ButtonGroup();
+        genderGroup.add(maleRadioButton);
+        genderGroup.add(femaleRadioButton);
 
         JButton CONFIRME = new JButton("Confirmer");
         CONFIRME.addActionListener(new ActionListener() {
@@ -180,7 +198,7 @@ public class AjoutPatient {
                     String adresse = Adresse.getText();
                     String Tel = numtel.getText();
                     String Adresse_mail = email.getText();
-                    String Genre = gender.getText();
+                    String Genre = maleRadioButton.isSelected() ? "M" : "F";
                     String hestorique_maladies = maladies.getText();
 
                     // Construction de la requête SQL avec PreparedStatement
@@ -216,5 +234,11 @@ public class AjoutPatient {
         CONFIRME.setFont(new Font("Tahoma", Font.PLAIN, 21));
         CONFIRME.setBounds(254, 393, 211, 38);
         frame.getContentPane().add(CONFIRME);
+        frame.getContentPane().add(backgroundPanel);
+        
+                JLabel lblSexe = new JLabel("Genre :");
+                lblSexe.setBounds(140, 335, 100, 20);
+                backgroundPanel.add(lblSexe);
+                lblSexe.setFont(new Font("Tahoma", Font.PLAIN, 20));
     }
 }

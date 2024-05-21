@@ -1,22 +1,20 @@
-package Secraitaire;
+package SecrétaireInterface;
 import java.awt.EventQueue;
 
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class AjoutRen {
 
@@ -27,7 +25,8 @@ public class AjoutRen {
 	private Statement statement;
 	private JTextField matPat_Ren;
 	private JLabel lblNewLabel;
-	
+	JPanel backgroundPanel;
+
 
 	
 	 // Launch the application.
@@ -62,12 +61,27 @@ public class AjoutRen {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		
 			//configurer le lien vers la BDD oracle avec toutes les informatons necessaires de la connexion à la BDD
-			 connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "SECRAITAIRE", "DADI");
+		    connection= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","GestionCabinet", "medecin");
 			   statement = connection.createStatement();
 		
 	        } catch (Exception e) {
 			e.printStackTrace();
 		     }
+		
+		ImageIcon backgroundImage = new ImageIcon("src/background.png");
+
+		// Create a panel for holding the background image
+		        backgroundPanel = new JPanel() {
+		            @Override
+		            protected void paintComponent(Graphics g) {
+		                super.paintComponent(g);
+		                g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+		            }
+		        };
+		        backgroundPanel.setBounds(0, 0, 800, 505); // Set bounds to cover the entire frame
+		        backgroundPanel.setLayout(null); // Using null layout for positioning components freely
+
+
 		
 		frame = new JFrame();
 		frame.setSize(800, 500);
@@ -191,6 +205,7 @@ public class AjoutRen {
 		btnDrRemplacant.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		btnDrRemplacant.setBounds(461, 380, 301, 70);
 		frame.getContentPane().add(btnDrRemplacant);
+		frame.getContentPane().add(backgroundPanel);
    
 	}}
 
