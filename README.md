@@ -35,7 +35,6 @@ Ce projet est une application de gestion de cabinet médical développée en Jav
 - Lancer l'application.
 - Choisissez une interface.
 - Testez les services.
-n
 
 ## Licence
 
