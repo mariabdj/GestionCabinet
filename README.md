@@ -10,6 +10,10 @@ Ce projet est une application de gestion de cabinet médical développée en Jav
 - **Gestion des rendez-vous** : planification, modification, annulation et consultation des rendez-vous.
 - **Gestion des consultations** : enregistrement des détails de la consultation, prescriptions, et suivi médical.
 
+## Presentation
+[Presentation](https://www.canva.com/design/DAGAzoKgggE/tHewTZG6t0exUETwpGEGcA/edit?utm_content=DAGAzoKgggE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+
 ## Prérequis
 
 - Java Development Kit (JDK) 17
