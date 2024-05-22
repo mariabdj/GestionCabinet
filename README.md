@@ -15,7 +15,7 @@ Ce projet est une application de gestion de cabinet médical développée en Jav
 
 - Java Development Kit (JDK) 17
 - IDE Java (Eclipse)
-- Base de données MySQL ou autre compatible JDBC
+- Base de données Oracle ou autre compatible JDBC
 
 ## Installation
 
