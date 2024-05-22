@@ -7,7 +7,6 @@ Ce projet est une application de gestion de cabinet médical développée en Jav
 ## Fonctionnalités
 
 - **Gestion des patients** : ajout, modification, suppression, et recherche de patients.
-- **Gestion des médecins** : ajout, modification, suppression, et recherche de médecins.
 - **Gestion des rendez-vous** : planification, modification, annulation et consultation des rendez-vous.
 - **Gestion des consultations** : enregistrement des détails de la consultation, prescriptions, et suivi médical.
 
@@ -16,26 +15,27 @@ Ce projet est une application de gestion de cabinet médical développée en Jav
 - Java Development Kit (JDK) 17
 - IDE Java (Eclipse)
 - Base de données Oracle ou autre compatible JDBC
+- Ojdbc / rs2xml jars
 
 ## Installation
 
 1. **Cloner le dépôt :**
    ```bash
-   git clone https://github.com/votre-utilisateur/gestion-cabinet.git
-   cd gestion-cabinet
+   git clone https://github.com/mariabdj/GestionCabinet.git
+   cd GestionCabinet
    ```
 
 2. **Configurer la base de données :**
-   - Créer une base de données MySQL nommée `gestion_cabinet`.
+   - Télécharger Oracles .
    - Importer le fichier `schema.sql` pour créer les tables nécessaires.
    - Mettre à jour le fichier `application.properties` avec les informations de connexion à la base de données.
 
 ## Utilisation
 
 - Lancer l'application.
-- Se connecter avec un compte administrateur pour gérer les utilisateurs.
-- Ajouter des médecins et des patients via le menu de gestion.
-
+- Choisissez une interface.
+- Testez les services.
+n
 
 ## Licence
 
