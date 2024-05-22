@@ -6,11 +6,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/Pc/Desktop/POO Project Docs/ojdbc11 (1).jar">
+	<classpathentry kind="lib" path="C:/Users/TRETEC/Desktop/GestionCabinet/libraries/ojdbc11 (1).jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Pc/Desktop/POO Project Docs/rs2xml (1).jar"/>
+	<classpathentry kind="lib" path="C:/Users/TRETEC/Desktop/GestionCabinet/libraries/rs2xml (1).jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
